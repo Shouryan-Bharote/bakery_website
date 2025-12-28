@@ -5,12 +5,12 @@ import ThemeEvents from "./Sections/ThemeEvents";
 
 const Home = () => {
   return (
-    <>
+    <main>
       <HomeHero />
       <BestSelling/>
       <ThemeEvents />
       {/* other sections here */}
-    </>
+    </main>
   );
 };
 

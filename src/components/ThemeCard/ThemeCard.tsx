@@ -19,27 +19,32 @@ const ThemeCard = ({
   return (
     <Link
       to={link}
-      className={`group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 block ${className}`}
+      className={`group relative overflow-hidden rounded-[2rem] shadow-lg hover:shadow-2xl transition-shadow duration-300 block ${className}`}
     >
-      {/* Card Container */}
-      <div className={`${bgColor} h-80 sm:h-96 relative overflow-hidden`}>
+      {/* Card Container with aspect ratio */}
+      <div className={`${bgColor} aspect-[4/5] relative overflow-hidden`}>
         
-        {/* Cake Image */}
-        <div className="absolute inset-0 p-6">
+        {/* Image with Gradient Overlay */}
+        <div className="relative w-full h-full">
+          {/* Image */}
           <img
             src={imageSrc}
             alt={title}
-            className="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover will-change-transform transition-transform duration-500 ease-out group-hover:scale-105"
+            style={{ 
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden'
+            }}
           />
-        </div>
+          
+          {/* Dark Overlay on Hover */}
+          <div className="absolute inset-0 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-        {/* Dark Overlay on Hover */}
-        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl m-6"></div>
-
-        {/* Title at Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl p-6 -m-2">
-            <h3 className="text-white text-xl sm:text-2xl font-semibold transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+          {/* Bottom Gradient with Title */}
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pt-20 pb-8 px-8">
+            <h3 className="text-white text-xl sm:text-2xl font-bold transition-transform duration-300 group-hover:-translate-y-1">
               {title}
             </h3>
           </div>
