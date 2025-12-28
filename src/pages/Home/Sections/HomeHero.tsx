@@ -32,7 +32,7 @@ const HomeHero = () => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <div className="border-4 border-[#37A6FF] rounded-sm max-w-lg w-full">
+            <div className=" rounded-sm max-w-lg w-full">
               <img
                 src="/assets/HomeHero.png"
                 alt="Colorful cake illustration"

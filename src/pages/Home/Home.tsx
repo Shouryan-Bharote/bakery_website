@@ -1,15 +1,19 @@
-import React from "react";
+import BestSelling from "./Sections/BestSelling";
 import HomeHero from "./Sections/HomeHero";
+import ThemeEvents from "./Sections/ThemeEvents";
 import CustomerReview from "./Sections/CustomerReview";
 
 function Home() {
   return (
-    <div>
+    <main>
       <HomeHero />
+      <BestSelling/>
+      <ThemeEvents />
       <CustomerReview />
       {/* Add your other sections here */}
-    </div>
+    </main>
   );
 }
+
 
 export default Home;
