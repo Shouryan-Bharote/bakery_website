@@ -3,24 +3,24 @@ interface ProductCardProps {
   imageSrc: string;
   name: string;
   price: number;
-  rating: number; // e.g. 4.0
+  rating: number;
 }
 
 const ProductCard = ({ imageSrc, name, price, rating }: ProductCardProps) => {
   return (
-    <div className="bg-white rounded-3xl shadow-sm border border-[#F3EBDD] p-3 sm:p-4 max-w-xs">
-      {/* Image */}
-      <div className="rounded-2xl overflow-hidden">
+    <div className="bg-white rounded-3xl shadow-sm border border-[#F3EBDD] p-3 sm:p-4 w-full transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-[#5C3D2E] cursor-pointer">
+      {/* Image with aspect ratio */}
+      <div className="rounded-2xl overflow-hidden aspect-square">
         <img
           src={imageSrc}
           alt={name}
-          className="w-full h-48 object-cover"
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
         />
       </div>
 
       {/* Content */}
       <div className="mt-4 space-y-1.5">
-        <h3 className="text-lg font-semibold text-[#2B1B12]">
+        <h3 className="text-lg font-semibold text-[#2B1B12] line-clamp-2">
           {name}
         </h3>
 
