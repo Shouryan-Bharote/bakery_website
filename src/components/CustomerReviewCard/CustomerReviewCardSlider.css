@@ -1,0 +1,129 @@
+/* CustomerReviewCardSlider.css */
+.customer-review-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 60px; /* Space for arrows */
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px; /* Add gap between cards */
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: calc(33.333% - 14px); /* 3 cards with gap */
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #5D3A1A;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn:hover {
+  background-color: #D4A574;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.slider-btn.prev {
+  left: 0;
+}
+
+.slider-btn.next {
+  right: 0;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #D4A574;
+  opacity: 0.3;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  opacity: 0.6;
+  transform: scale(1.2);
+}
+
+.dot.active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+@media (max-width: 1024px) {
+  .slider-item {
+    width: calc(50% - 10px); /* 2 cards on tablet */
+  }
+  
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-review-slider {
+    padding: 0 50px;
+  }
+  
+  .slider-item {
+    width: 100%; /* 1 card on mobile */
+  }
+  
+  .slider-track {
+    gap: 10px;
+  }
+  
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+}

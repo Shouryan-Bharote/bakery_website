@@ -1,13 +1,15 @@
-// src/pages/Home.tsx
+import React from "react";
 import HomeHero from "./Sections/HomeHero";
+import CustomerReview from "./Sections/CustomerReview";
 
-const Home = () => {
+function Home() {
   return (
-    <>
+    <div>
       <HomeHero />
-      {/* other sections here */}
-    </>
+      <CustomerReview />
+      {/* Add your other sections here */}
+    </div>
   );
-};
+}
 
 export default Home;

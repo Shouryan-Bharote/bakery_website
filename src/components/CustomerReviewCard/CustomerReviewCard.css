@@ -1,0 +1,94 @@
+/* CustomerReviewCard.css */
+.customer-review-card {
+  background: #FFFFFF;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 0; /* Changed from margin: 15px */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep rest of the CSS the same */
+.customer-review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.customer-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #D4A574;
+}
+
+.customer-details {
+  text-align: left;
+}
+
+.customer-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3D2817;
+  margin: 0 0 5px 0;
+}
+
+.customer-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.customer-review {
+  text-align: left;
+  line-height: 1.6;
+  color: #444;
+  font-size: 0.95rem;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.rating {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+}
+
+.star {
+  color: #DDD;
+  font-size: 1.2rem;
+}
+
+.star.filled {
+  color: #FFB800;
+}
+
+@media (max-width: 768px) {
+  .customer-review-card {
+    padding: 20px;
+  }
+  
+  .customer-name {
+    font-size: 1.1rem;
+  }
+  
+  .customer-review {
+    font-size: 0.9rem;
+  }
+}
