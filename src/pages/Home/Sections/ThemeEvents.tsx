@@ -1,4 +1,5 @@
 // src/pages/Home/Sections/ThemeEvents.tsx
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import ThemeCard from '../../../components/ThemeCard/ThemeCard';
 
 const ThemeEvents = () => {
@@ -7,16 +8,12 @@ const ThemeEvents = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-10">
         
         {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2B1B12] inline-flex items-center justify-center flex-wrap gap-3">
-            <span className="text-[#2B1B12]/30">···············</span>
-            <span>Cakes for</span>
-            <span className="text-[#FFB800]">Theme</span>
-            <span>and</span>
-            <span className="text-[#FFB800]">Events</span>
-            <span className="text-[#2B1B12]/30">···············</span>
-          </h2>
+        <div className="mb-12">
+          <SectionTitle>
+            Cakes for <span className="text-[#FFB800]">Theme</span> and <span className="text-[#FFB800]">Events</span>
+          </SectionTitle>
         </div>
+
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
