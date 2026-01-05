@@ -25,7 +25,7 @@ const ThemeEvents = () => {
       imageSrc: '/assets/Events/Special days.jpg',
       title: 'Cakes for Special Days',
       bgColor: 'bg-gray-800',
-      link: '/',
+      link: '/theme-events/special-days',
       delay: '160ms',
     },
   ];
@@ -49,7 +49,7 @@ const ThemeEvents = () => {
               {themeCards.map((card) => (
                 <div
                   key={card.id}
-                  className="flex-shrink-0 w-[85vw] snap-center"
+                  className="shrink-0 w-[85vw] snap-center"
                 >
                   <ThemeCard
                     imageSrc={card.imageSrc}
