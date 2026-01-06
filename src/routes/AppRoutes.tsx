@@ -12,6 +12,9 @@ import SpecialDays from "../pages/ThemeEvents/SpecialDays";
 
 // Product Category Pages
 import Cakes from "../pages/Categories/ProductCategories/Cakes/Cakes";
+import Pastries from "../pages/Categories/ProductCategories/Pastries/Pastries";
+import Brownies from "../pages/Categories/ProductCategories/Brownies/Brownies";
+import Cookies from "../pages/Categories/ProductCategories/Cookies/Cookies";
 
 const AppRoutes = () => {
   return (
@@ -30,9 +33,9 @@ const AppRoutes = () => {
       {/* Product Category Pages */}
       <Route path="/categories/cakes" element={<Cakes />} />
       {/* Future routes - uncomment when pages are created */}
-      {/* <Route path="/categories/pastries" element={<Pastries />} /> */}
-      {/* <Route path="/categories/brownies" element={<Brownies />} /> */}
-      {/* <Route path="/categories/cookies" element={<Cookies />} /> */}
+      <Route path="/categories/pastries" element={<Pastries />} />
+      <Route path="/categories/brownies" element={<Brownies />} />
+      <Route path="/categories/cookies" element={<Cookies />} />
 
       {/* 404 Not Found - Optional */}
       <Route path="*" element={<div className="min-h-screen flex items-center justify-center bg-[#FFF5DC]">
