@@ -8,9 +8,9 @@ interface ProductCardProps {
 
 const ProductCard = ({ imageSrc, name, price, rating }: ProductCardProps) => {
   return (
-    <div className="bg-white rounded-3xl shadow-sm border border-[#F3EBDD] p-3 sm:p-4 w-full transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-[#5C3D2E] cursor-pointer">
+    <div className="bg-white rounded-3xl shadow-sm border border-[#F3EBDD] p-3 sm:p-4 w-full h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-[#5C3D2E] cursor-pointer">
       {/* Image with aspect ratio */}
-      <div className="rounded-2xl overflow-hidden aspect-square">
+      <div className="rounded-2xl overflow-hidden aspect-square flex-shrink-0">
         <img
           src={imageSrc}
           alt={name}
@@ -18,8 +18,8 @@ const ProductCard = ({ imageSrc, name, price, rating }: ProductCardProps) => {
         />
       </div>
 
-      {/* Content */}
-      <div className="mt-4 space-y-1.5">
+      {/* Content - flex-grow to fill remaining space */}
+      <div className="mt-4 space-y-1.5 flex-grow flex flex-col">
         <h3 className="text-lg font-semibold text-[#2B1B12] line-clamp-2">
           {name}
         </h3>
@@ -28,8 +28,8 @@ const ProductCard = ({ imageSrc, name, price, rating }: ProductCardProps) => {
           ₹{price}
         </p>
 
-        {/* Rating */}
-        <div className="flex items-center gap-1.5 text-sm text-[#8C8C8C] mt-1">
+        {/* Rating - push to bottom */}
+        <div className="flex items-center gap-1.5 text-sm text-[#8C8C8C] mt-auto pt-1">
           {/* Star icon */}
           <svg
             className="w-4 h-4 text-[#FFA500]"
