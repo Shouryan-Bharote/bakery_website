@@ -119,7 +119,7 @@ const BestSelling = () => {
 
           {/* Product Grid */}
           <CardGrid 
-            columns={{ mobile: 1, tablet: 2, desktop: 4 }}
+            columns={{ mobile: 2, tablet: 2, desktop: 4 }}
             gap="md"
             className="mb-8"
           >

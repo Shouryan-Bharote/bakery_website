@@ -4,8 +4,8 @@ import type { ReactNode } from 'react';
 interface CardGridProps {
   children: ReactNode;
   columns?: {
-    mobile?: 1 | 2;
-    tablet?: 2 | 3;
+    mobile?: 1 | 2| 3 | 4;
+    tablet?: 2 | 3 | 4;
     desktop?: 3 | 4 | 5 | 6;
   };
   gap?: 'sm' | 'md' | 'lg';
@@ -23,10 +23,13 @@ const CardGrid = ({
     mobile: {
       1: 'grid-cols-1',
       2: 'grid-cols-2',
+      3: 'grid-cols-3',
+      4: 'grid-cols-4',
     },
     tablet: {
       2: 'sm:grid-cols-2',
       3: 'sm:grid-cols-3',
+      4: 'sm:grid-cols-4',
     },
     desktop: {
       3: 'lg:grid-cols-3',
@@ -48,7 +51,7 @@ const CardGrid = ({
   const desktopCol = colClasses.desktop[columns.desktop || 4];
 
   return (
-    <div className={`grid ${mobileCol} ${tabletCol} ${desktopCol} ${gapClasses[gap]} ${className}`}>
+    <div className={`grid ${mobileCol} ${tabletCol} ${desktopCol} ${gapClasses[gap]} auto-rows-fr ${className}`}>
       {children}
     </div>
   );

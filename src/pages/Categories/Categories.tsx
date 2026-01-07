@@ -1,5 +1,6 @@
-// src/pages/Categories.tsx
+// src/pages/Categories/Categories.tsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface CategoryCardProps {
   imageSrc: string;
@@ -34,36 +35,42 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ imageSrc, title, onClick })
 };
 
 const Categories: React.FC = () => {
+  const navigate = useNavigate();
+
   const categories = [
     {
       id: 1,
       title: 'Cakes',
       imageSrc: '/assets/categories/cakes.jpg',
+      route: '/categories/cakes',
     },
     {
       id: 2,
       title: 'Pastries',
       imageSrc: '/assets/categories/pastries.jpg',
+      route: '/categories/pastries',
     },
     {
       id: 3,
       title: 'Brownies',
       imageSrc: '/assets/categories/brownies.jpg',
+      route: '/categories/brownies',
     },
     {
       id: 4,
       title: 'Cookies',
       imageSrc: '/assets/categories/cookies.jpg',
+      route: '/categories/cookies',
     },
   ];
 
-  const handleCategoryClick = (categoryName: string) => {
-    console.log(`Clicked on ${categoryName}`);
-    // Add navigation or filtering logic here
+  const handleCategoryClick = (route: string, categoryName: string) => {
+    console.log(`Navigating to ${categoryName}`);
+    navigate(route);
   };
 
   return (
-    <div className="min-h-screen py-12 lg:py-16">
+    <div className="min-h-screen bg-[#FFF5DC] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         
         {/* Section Title */}
@@ -90,7 +97,7 @@ const Categories: React.FC = () => {
               <CategoryCard
                 imageSrc={category.imageSrc}
                 title={category.title}
-                onClick={() => handleCategoryClick(category.title)}
+                onClick={() => handleCategoryClick(category.route, category.title)}
               />
             </div>
           ))}
