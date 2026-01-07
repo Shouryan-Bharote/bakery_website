@@ -1,34 +1,66 @@
 /* CustomerReview.css */
 .customer-review-section {
-  padding: 80px 20px;
-  background-color: #FFF8F0;
-  text-align: center;
+  width: 100%;
+  background-color: #FFF5DC;
+  padding: 48px 0;
 }
 
 .customer-review-container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 60px;
-  color: #3D2817;
-  letter-spacing: 1px;
+/* Section Title with Dots - Exact same as ThemeEvents */
+.text-center {
+  text-align: center;
 }
 
-.section-title .highlight {
+.mb-12 {
+  margin-bottom: 48px;
+}
+
+.section-title-with-dots {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2B1B12;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dots-decoration {
+  color: rgba(43, 27, 18, 0.3);
+  font-weight: bold;
+}
+
+.title-our {
+  color: #2B1B12;
+}
+
+.title-customers {
   color: #D4A574;
 }
 
-@media (max-width: 768px) {
-  .customer-review-section {
-    padding: 60px 15px;
+/* Responsive Typography */
+@media (max-width: 1024px) {
+  .section-title-with-dots {
+    font-size: 2.5rem;
   }
   
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
+  .customer-review-section {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-title-with-dots {
+    font-size: 1.875rem;
+  }
+  
+  .section-title-with-dots {
+    gap: 8px;
   }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CustomerReviewCard from "./CustomerReviewCard";
 import "./CustomerReviewCardSlider.css";
 
+
 interface Review {
   id: number;
   name: string;
@@ -11,9 +12,11 @@ interface Review {
   rating?: number;
 }
 
+
 function CustomerReviewCardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(3);
+
 
   // Sample customer reviews data with placeholder images
   const reviews: Review[] = [
@@ -55,6 +58,7 @@ function CustomerReviewCardSlider() {
     },
   ];
 
+
   // Responsive cards display
   useEffect(() => {
     const handleResize = () => {
@@ -67,10 +71,12 @@ function CustomerReviewCardSlider() {
       }
     };
 
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -78,18 +84,35 @@ function CustomerReviewCardSlider() {
     );
   };
 
+
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? Math.max(reviews.length - cardsToShow, 0) : prevIndex - 1
     );
   };
 
+
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 
+
   return (
     <div className="customer-review-slider">
+      {/* Pagination dots BEFORE the slider */}
+      <div className="slider-dots top">
+        {Array.from({
+          length: Math.max(reviews.length - cardsToShow + 1, 1),
+        }).map((_, index) => (
+          <button
+            key={index}
+            className={`dot ${currentIndex === index ? "active" : ""}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
       <div className="slider-wrapper">
         <button
           className="slider-btn prev"
@@ -98,6 +121,7 @@ function CustomerReviewCardSlider() {
         >
           ‹
         </button>
+
 
         <div className="slider-container">
           <div
@@ -125,6 +149,7 @@ function CustomerReviewCardSlider() {
           </div>
         </div>
 
+
         <button
           className="slider-btn next"
           onClick={nextSlide}
@@ -134,7 +159,9 @@ function CustomerReviewCardSlider() {
         </button>
       </div>
 
-      <div className="slider-dots">
+
+      {/* Pagination dots AFTER the slider */}
+      <div className="slider-dots bottom">
         {Array.from({
           length: Math.max(reviews.length - cardsToShow + 1, 1),
         }).map((_, index) => (
@@ -149,5 +176,6 @@ function CustomerReviewCardSlider() {
     </div>
   );
 }
+
 
 export default CustomerReviewCardSlider;

@@ -1,15 +1,17 @@
-/* CustomerReviewCardSlider.css */
+/* CustomerReviewCardSlider.css - FINAL FIX */
 .customer-review-slider {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  padding: 0 60px; /* Space for arrows */
+  padding: 60px 0; /* No side padding on main container */
+  margin: 60px 0;
 }
 
 .slider-wrapper {
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
+  padding: 0 80px; /* Add padding here for arrow space */
 }
 
 .slider-container {
@@ -21,13 +23,13 @@
 .slider-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  gap: 20px; /* Add gap between cards */
+  gap: 20px;
 }
 
 .slider-item {
   flex: 0 0 auto;
   box-sizing: border-box;
-  width: calc(33.333% - 14px); /* 3 cards with gap */
+  width: calc(33.333% - 14px);
 }
 
 .slider-btn {
@@ -42,7 +44,7 @@
   border-radius: 50%;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   transition: background-color 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
@@ -60,11 +62,11 @@
 }
 
 .slider-btn.prev {
-  left: 0;
+  left: 15px; /* Positioned outside cards, inside padding */
 }
 
 .slider-btn.next {
-  right: 0;
+  right: 15px; /* Positioned outside cards, inside padding */
 }
 
 .slider-dots {
@@ -98,23 +100,27 @@
 
 @media (max-width: 1024px) {
   .slider-item {
-    width: calc(50% - 10px); /* 2 cards on tablet */
+    width: calc(50% - 10px);
+  }
+  
+  .slider-wrapper {
+    padding: 0 70px;
   }
   
   .slider-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 768px) {
-  .customer-review-slider {
-    padding: 0 50px;
+  .slider-wrapper {
+    padding: 0 60px;
   }
   
   .slider-item {
-    width: 100%; /* 1 card on mobile */
+    width: 100%;
   }
   
   .slider-track {
@@ -122,8 +128,16 @@
   }
   
   .slider-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .slider-btn.prev {
+    left: 10px;
+  }
+  
+  .slider-btn.next {
+    right: 10px;
   }
 }
