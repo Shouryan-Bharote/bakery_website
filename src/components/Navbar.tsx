@@ -25,7 +25,7 @@ const Navbar = () => {
     }`;
 
   return (
-    <nav className="w-full bg-[#41291F]">
+    <nav className="w-full bg-[#41291F] relative z-50">
       <div className="mx-auto max-w-full px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           
@@ -53,7 +53,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-[#F5E6D3] hover:text-white transition-colors"
+            className="md:hidden text-[#F5E6D3] hover:text-white transition-colors z-50"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -80,28 +80,53 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-[#5C3D2E]">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `block px-3 py-3 transition-colors ${
-                    isActive 
-                      ? 'text-white font-semibold bg-[#5C3D2E]' 
-                      : 'text-[#F5E6D3] hover:text-white hover:bg-[#5C3D2E]'
-                  }`
-                }
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </div>
-        )}
+      {/* Overlay/Backdrop */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity duration-300"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        ></div>
+      )}
+
+      {/* Mobile Drawer Menu - Slides from Left */}
+      <div
+        className={`fixed top-0 left-0 h-full w-72 bg-[#41291F] z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between px-6 h-20 border-b border-[#5C3D2E]">
+          <NavLink 
+            to="/" 
+            className="text-3xl font-bold tracking-wide text-[#F5E6D3] font-[Heyam,sans-serif]"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            HEYAM!
+          </NavLink>
+        </div>
+
+        {/* Drawer Navigation Links */}
+        <nav className="px-4 py-6">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `block px-4 py-4 rounded-lg mb-2 transition-all ${
+                  isActive 
+                    ? 'text-white font-semibold bg-[#5C3D2E]' 
+                    : 'text-[#F5E6D3] hover:text-white hover:bg-[#5C3D2E]/50'
+                }`
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
       </div>
     </nav>
   );

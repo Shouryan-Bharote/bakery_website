@@ -4,9 +4,9 @@ import Button from '../../../components/Button';
 const HomeHero = () => {
   return (
     <section className="w-full ">
-      {/* Outer margin from all sides */}
-      <div className="m-2 sm:m-3 lg:m-4">
-        <div className="mx-auto w-full px-4 sm:px-8 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center lg:items-stretch gap-12 lg:gap-20">
+      {/* Outer margin - reduced top margin */}
+      <div className="mt-0 mb-2 mx-2 sm:mt-0 sm:mb-3 sm:mx-3 lg:mt-0 lg:mb-4 lg:mx-4">
+        <div className="mx-auto w-full px-4 sm:px-8 lg:px-12 py-8 lg:py-16 flex flex-col lg:flex-row items-center lg:items-stretch gap-12 lg:gap-20">
           
           {/* Left: Text content */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-8">
@@ -32,7 +32,7 @@ const HomeHero = () => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <div className=" rounded-sm max-w-lg w-full">
+            <div className="rounded-sm max-w-lg w-full">
               <img
                 src="/assets/HomeHero.png"
                 alt="Colorful cake illustration"

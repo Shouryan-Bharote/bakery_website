@@ -1,5 +1,5 @@
 // src/pages/Home/Sections/BestSelling.tsx
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import CardGrid from '../../../components/ProductCard/CardGrid';
 import Button from '../../../components/Button';
@@ -68,14 +68,23 @@ const INITIAL_ITEMS = 4;
 
 const BestSelling = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_ITEMS);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const handleToggleView = () => {
     if (visibleCount === INITIAL_ITEMS) {
-      // Show all items
+      // Expand - show all items
       setVisibleCount(allProducts.length);
     } else {
-      // Reset to initial items
+      // Collapse - show initial items and scroll to top of section
       setVisibleCount(INITIAL_ITEMS);
+      
+      // Scroll to the section smoothly
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
     }
   };
 
@@ -83,7 +92,7 @@ const BestSelling = () => {
   const isExpanded = visibleCount > INITIAL_ITEMS;
 
   return (
-    <section className="w-full bg-[#FFF5DC] py-12 lg:py-16">
+    <section ref={sectionRef} className="w-full bg-[#FFF5DC] py-12 lg:py-16">
       {/* Outer margin */}
       <div className="m-3 sm:m-4 lg:m-6">
         <div className="mx-auto px-4 sm:px-6 lg:px-10">
