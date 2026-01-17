@@ -1,19 +1,20 @@
+// src/pages/Home.tsx
 import BestSelling from "./Sections/BestSelling";
+import CustomerReview from "./Sections/CustomerReview";
 import HomeHero from "./Sections/HomeHero";
 import ThemeEvents from "./Sections/ThemeEvents";
-import CustomerReview from "./Sections/CustomerReview";
 
-function Home() {
+const Home = () => {
   return (
     <main>
       <HomeHero />
       <BestSelling/>
       <ThemeEvents />
       <CustomerReview />
-      {/* Add your other sections here */}
+      {/* other sections here */}
     </main>
   );
-}
+};
 
 
 export default Home;
