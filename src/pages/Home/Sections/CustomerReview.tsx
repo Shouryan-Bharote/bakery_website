@@ -1,4 +1,3 @@
-import React from "react";
 import CustomerReviewCardSlider from "../../../components/CustomerReviewCard/CustomerReviewCardSlider";
 import "./CustomerReview.css";
 

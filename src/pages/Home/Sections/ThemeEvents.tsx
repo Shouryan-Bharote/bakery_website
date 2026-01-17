@@ -25,7 +25,7 @@ const ThemeEvents = () => {
       imageSrc: '/assets/Events/Special days.jpg',
       title: 'Cakes for Special Days',
       bgColor: 'bg-gray-800',
-      link: '/theme-events/special-days',
+      link: '/',
       delay: '160ms',
     },
   ];
