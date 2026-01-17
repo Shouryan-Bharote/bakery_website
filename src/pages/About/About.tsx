@@ -1,5 +1,4 @@
 // src/pages/About/About.tsx
-import ChefCard from '../../components/ChefCard/ChefCard';
 import AboutHero from './Sections/AboutHero';
 import Newsletter from './Sections/Newsletter';
 import OurChefs from './Sections/OurChefs';

@@ -11,3 +11,4 @@ const RadialComponent = () => {
     </div>
   );
 };
+export default RadialComponent;

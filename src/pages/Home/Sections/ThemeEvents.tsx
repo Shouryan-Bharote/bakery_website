@@ -64,7 +64,7 @@ const ThemeEvents = () => {
 
           {/* Desktop: Grid layout */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {themeCards.map((card, index) => (
+            {themeCards.map((card) => (
               <div
                 key={card.id}
                 className="animate-fadeInUp"
